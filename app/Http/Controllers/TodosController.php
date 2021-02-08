@@ -15,6 +15,7 @@ class TodosController extends Controller
     public function index()
     {
         return $todo = Todo::all();
+        // return view('home', ['todos' => Todo::all()]);
     }
 
     /**
@@ -24,7 +25,7 @@ class TodosController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
