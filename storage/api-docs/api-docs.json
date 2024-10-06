@@ -1,0 +1,180 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel Todo api documentation.",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/v1/todos": {
+            "get": {
+                "tags": [
+                    "Todos"
+                ],
+                "summary": "Get a list of todos",
+                "operationId": "f270478a707b61a56293f8603545d504",
+                "responses": {
+                    "200": {
+                        "description": "List of todos"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Todos"
+                ],
+                "summary": "AddTodo",
+                "operationId": "8c2927a505c5934c6a3d4b7c92142456",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Todo"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Todo"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "List of todos"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v1/todos/{id}": {
+            "put": {
+                "tags": [
+                    "Todos"
+                ],
+                "summary": "UpdateTodo",
+                "operationId": "5fb599efe7505a78e6b1d3dc625f665e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of the todo to be updated.",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Todo"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Todo"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Update a todo with the specified id"
+                    },
+                    "404": {
+                        "description": "Todo not found for specified id"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Todos"
+                ],
+                "summary": "Delete Todo item",
+                "operationId": "b0d1bc3187d396e8edf14f9c302c834f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of the todo to be deleted.",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Todo with the specified id is deleted."
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Todos"
+                ],
+                "summary": "UpdateTodo",
+                "operationId": "de7750df28e4e37b123b1a561ce9a424",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of the todo to be updated.",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Todo"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Todo"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Update a todo with the specified id"
+                    },
+                    "404": {
+                        "description": "Todo not found for specified id"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Todo": {
+                "title": "Create a new item",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "completed": {
+                        "type": "boolean",
+                        "default": false
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Todos",
+            "description": "Todos"
+        }
+    ]
+}
