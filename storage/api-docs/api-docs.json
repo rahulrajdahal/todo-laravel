@@ -49,6 +49,26 @@
             }
         },
         "/api/v1/todos/{id}": {
+            "get": {
+                "tags": [
+                    "Todos"
+                ],
+                "summary": "Get todo by id",
+                "operationId": "6acdc190304ec8da0cc327d31b52d22d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of the todo to be updated.",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns the specified todo"
+                    }
+                }
+            },
             "put": {
                 "tags": [
                     "Todos"

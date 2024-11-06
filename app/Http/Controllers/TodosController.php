@@ -50,6 +50,34 @@ class TodosController extends Controller
         }
     }
 
+    /**
+     * @OA\Get(
+     *     path="/api/v1/todos/{id}",
+     *     summary="Get todo by id",
+     *     tags={"Todos"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="Id of the todo to be updated.",
+     *         required=true,
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Returns the specified todo"
+     *     )
+     * )
+     */
+    public function get($id)
+    {
+        try {
+            $todo = Todo::find($id);
+
+            return response()->json(['data' => $todo, 'message' => 'Todo fetched!'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e, 'message' => 'Internal Server Error'], 500);
+        }
+    }
+
 
     /**
      * @OA\Post(
