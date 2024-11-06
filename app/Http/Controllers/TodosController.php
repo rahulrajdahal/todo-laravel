@@ -221,7 +221,7 @@ class TodosController extends Controller
         try {
             Todo::destroy($id);
 
-            return response()->json(['message' => 'Todo deleted!'], 200);
+            return response()->noContent();
         } catch (\Exception $e) {
             return response()->json(['message' => 'Internal Server Error', 'error' => $e], 500);
         }
