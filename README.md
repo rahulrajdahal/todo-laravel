@@ -28,7 +28,7 @@ cd todo-laravel && composer install
 ### 3. Connect to your API 💾
 
 - Copy **.env.example** file.
-- Rename to **.env.example copy** file.
+- Rename **.env.example copy** to **.env** file.
 - Update key value pairs.
 
 ### 4. Prepare and migrate the database
